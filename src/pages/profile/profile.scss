@@ -1,0 +1,165 @@
+@import "../../style.scss";
+
+.profile {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+
+    .profileContainer {
+      width: 80%;
+      margin: auto;
+      border-radius: 20px;
+      overflow: hidden;
+
+      .images {
+        width: 100%;
+        height: 30vh;
+        position: relative;
+        .cover {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .profilePic {
+          width: 200px;
+          height: 200px;
+          border: 4px solid white;
+          border-radius: 50%;
+          overflow: hidden;
+          cursor: pointer;
+
+          position: absolute;
+          left: 2rem;
+          top: calc(30vh - 100px);
+          transition: 0.2s;
+
+          img {
+            width: 100%;
+          }
+        }
+        .profilePic:hover {
+          img {
+            filter: brightness(90%);
+            transition: 0.2s;
+          }
+        }
+      }
+
+      .uInfo {
+        -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+
+        background-color: themed("bg");
+        color: themed("textColor");
+        padding: 2rem;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        border-radius: 20px;
+
+        .uEdit {
+          button {
+            $width: 125px;
+            width: $width;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid #cfd9de;
+            background: themed("bg");
+            border-radius: calc($width - (0.5 * $width));
+            cursor: pointer;
+            transition: 0.2s;
+          }
+          button:hover {
+            background: #e7e7e8;
+            transition: 0.2s;
+          }
+        }
+
+        .uDetails {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-around;
+          gap: 3rem;
+          margin-top: calc(100px - 32px);
+
+          .uTitle{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            span {
+            font-size: 1.8rem;
+            font-weight: 600;
+          }
+          h3{
+            font-weight: normal;
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            background-color: #2C3B63;
+            padding: 0.4rem 1.4rem;
+            text-align: center;
+            border-radius: 20px;
+            cursor: pointer;
+          }
+          h3:hover{
+            text-decoration: underline;
+          }
+          }
+
+          .clubAffiliations {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.6rem;
+            h3 {
+              font-size: 1rem;
+              font-weight: 400;
+            }
+            .clubs {
+              gap: 1rem;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              .images {
+                width: 50px;
+                height: 50px;
+                background-color: #222222;
+                border-radius: 50%;
+                overflow: hidden;
+                padding: 2px;
+                cursor: pointer;
+
+                img {
+                  width: 100%;
+                }
+              }
+
+              .images:hover {
+                img {
+                  filter: brightness(90%);
+                }
+              }
+            }
+          }
+
+          .info {
+            .item {
+              span {
+                font-size: 1rem;
+                font-weight: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
