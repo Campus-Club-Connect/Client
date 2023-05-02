@@ -33,10 +33,12 @@ const Post = ({ post }) => {
           </div>
           <MoreHorizIcon />
         </div>
+
         <div className="content">
           <p>{post.desc}</p>
           <img src={post.img} alt="" />
         </div>
+
         <div className="info">
           <div className="item">
             {liked ? <ThumbUpRoundedIcon /> : <ThumbUpOutlinedIcon />}

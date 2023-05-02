@@ -20,7 +20,7 @@ const Profile = () => {
           />
           <div className="profilePic">
             <img
-              src="https://i.pinimg.com/564x/14/3f/66/143f663ec52f338ecdaa53f3265b62cd.jpg"
+              src="https://styles.redditmedia.com/t5_44t81x/styles/communityIcon_d79pgj3m1hf71.png"
               alt=""
             />
           </div>

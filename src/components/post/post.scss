@@ -5,65 +5,73 @@
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: themed("bg");
     color: themed("textColor");
 
     .container {
-      padding: 20px;
-    }
-    .user {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .userInfo {
-        display: flex;
-        gap: 20px;
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .details {
-          display: flex;
-          flex-direction: column;
-
-          .name {
-            font-weight: 500;
-          }
-          .date {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-
-    .content {
-      margin: 20px 0px;
-      img {
-        border-radius: 8px;
-        background-color: #c5c5c5;
-        width: 100%;
-        max-height: 500px;
-        object-fit: contain;
-        margin-top: 20px;
-      }
-    }
-
-    .info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-
-      .item {
+      .user {
+        padding: 20px;
         display: flex;
         align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        font-size: 14px;
+        justify-content: space-between;
+
+        .userInfo {
+          display: flex;
+          gap: 10px;
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid black;
+          }
+
+          .details {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+
+            .name {
+              font-weight: bold;
+              font-size: 14px;
+            }
+            .date {
+              font-size: 12px;
+              color: themed("textColorSoft");
+            }
+          }
+        }
+      }
+
+      .content {
+        p {
+          font-size: 0.875rem;
+          padding: 0px 20px;
+        }
+
+        img {
+          background-color: #c5c5c5;
+          width: 100%;
+          max-height: 500px;
+          object-fit: contain;
+          margin-top: 20px;
+        }
+      }
+
+      .info {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          font-size: 12px;
+        }
       }
     }
   }

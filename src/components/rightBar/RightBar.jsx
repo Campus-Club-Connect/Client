@@ -1,3 +1,4 @@
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import "./rightBar.scss";
 
 const RightBar = () => {
@@ -9,28 +10,31 @@ const RightBar = () => {
           <div className="user">
             <div className="userInfo">
               <img
-                src="https://i.pinimg.com/originals/90/1c/e6/901ce63a2f8c6eb9bd3d40a12195f332.jpg"
+                src="https://i.pinimg.com/564x/cc/36/23/cc362322513c1ca26febcebbc372a475.jpg"
                 alt=""
               />
-              <span>Kazuha</span>
+              <p>
+                <span>Faruzan</span> wishes to have a chat with you
+              </p>
             </div>
-            <div className="buttons">
-              <button>More</button>
-              <button>Dismiss</button>
-            </div>
+            <button>
+              <CloseRoundedIcon />
+            </button>
           </div>
+
           <div className="user">
             <div className="userInfo">
               <img
                 src="https://i.pinimg.com/originals/90/1c/e6/901ce63a2f8c6eb9bd3d40a12195f332.jpg"
                 alt=""
               />
-              <span>Kazuha</span>
+              <p>
+                <span>Kazuha</span> has a meeting with you
+              </p>
             </div>
-            <div className="buttons">
-              <button>More</button>
-              <button>Dismiss</button>
-            </div>
+            <button>
+              <CloseRoundedIcon />
+            </button>
           </div>
         </div>
 

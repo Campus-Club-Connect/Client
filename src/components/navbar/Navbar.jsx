@@ -7,6 +7,7 @@ import NotificationsRoundedIcon from "@material-ui/icons/NotificationsRounded";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import PersonOutlineRoundedIcon from "@material-ui/icons/PersonOutlineRounded";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
@@ -39,11 +40,8 @@ const Navbar = () => {
         <EmailRoundedIcon />
         <NotificationsRoundedIcon />
         <div className="user">
-          <img
-            src={currentUser.profilePic}
-            alt=""
-          />
-          <span>{currentUser.name}</span>
+          <img src={currentUser.profilePic} alt="" />
+          <ExpandMoreRoundedIcon className="dropDown" />
         </div>
       </div>
     </div>
