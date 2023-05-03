@@ -8,6 +8,25 @@
 
   @include mobile {
     height: auto;
+    padding: 10px;
+    overflow: auto;
+    margin-bottom: auto;
+
+    &::-webkit-scrollbar {
+      width: 16px;
+      display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #7b7d7f;
+      border: 7px solid #fff;
+      border-radius: 10rem;
+    }
+    &::-webkit-scrollbar-track {
+      position: absolute;
+      right: -3rem;
+      top: -50rem;
+      background: transparent;
+    }
   }
 
   .story {
@@ -18,7 +37,7 @@
 
     @include mobile {
       flex: none;
-      width: 70px;
+      width: 80px;
       height: 120px;
     }
 

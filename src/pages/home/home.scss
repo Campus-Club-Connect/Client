@@ -6,7 +6,9 @@
     padding: 20px 70px;
 
     @include mobile {
-      padding: 10px;
+      padding: 0px;
+      width: 100vw;
+      overflow: hidden;
     }
 
     h1 {
