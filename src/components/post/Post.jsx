@@ -1,11 +1,9 @@
 import "./post.scss";
-import ThumbUpRoundedIcon from "@material-ui/icons/ThumbUpRounded";
-import ThumbUpOutlinedIcon from "@material-ui/icons/ThumbUpOutlined";
-import TextsmsOutlinedIcon from "@material-ui/icons/TextsmsOutlined";
-import ShareRoundedIcon from "@material-ui/icons/ShareRounded";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faLocation } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { styled } from "@material-ui/core";
 import Comments from "../comments/Comments";
 import { useState } from "react";
 
@@ -28,10 +26,11 @@ const Post = ({ post }) => {
               >
                 <span className="name">{post.name}</span>
               </Link>
-              <span className="date">1 min ago</span>
+              <span className="date">1m ago</span>
             </div>
           </div>
-          <MoreHorizIcon />
+
+          <FontAwesomeIcon icon={faEllipsis} className="moreOptions" />
         </div>
 
         <div className="content">
@@ -41,16 +40,35 @@ const Post = ({ post }) => {
 
         <div className="info">
           <div className="item">
-            {liked ? <ThumbUpRoundedIcon /> : <ThumbUpOutlinedIcon />}
-            1.2K Likes
+            <FontAwesomeIcon icon="fa-thumbs-up" />
+            <p>1.2K likes this</p>
           </div>
           <div className="item" onClick={() => setCommonOpen(!commentOpen)}>
-            <TextsmsOutlinedIcon />
-            19 Comments
+            <p>19 Comments</p>
+          </div>
+        </div>
+
+        <div className="actions">
+          <div className="item">
+            {liked ? (
+              <FontAwesomeIcon icon="fa-thumbs-up" />
+            ) : (
+              <FontAwesomeIcon icon="fa-regular fa-thumbs-up" />
+            )}
+            <p>Like</p>
+          </div>
+          <div className="item" onClick={() => setCommonOpen(!commentOpen)}>
+            <FontAwesomeIcon icon="fa-regular fa-comment" />
+            <p>Comment</p>
           </div>
           <div className="item">
-            <ShareRoundedIcon />
-            Share
+            <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
+            <p>Share</p>
+          </div>
+          <div className="item">
+            <FontAwesomeIcon icon={faLocation} />
+            <FontAwesomeIcon icon="fa-regular fa-location" />
+            <p>Pin</p>
           </div>
         </div>
         {commentOpen && <Comments />}

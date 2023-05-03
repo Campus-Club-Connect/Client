@@ -2,6 +2,13 @@ import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import "./style.scss";
 
+//React imports
+import { library } from "@fortawesome/fontawesome-svg-core"; //allows later to just use icon name to render-them
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
+
 import {
   createBrowserRouter,
   Navigate,
@@ -15,6 +22,8 @@ import Profile from "./pages/profile/Profile";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
+
+library.add(far, faThumbsUp, faComment, faArrowUpFromBracket);
 
 function App() {
   const { currentUser } = useContext(AuthContext);

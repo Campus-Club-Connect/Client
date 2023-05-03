@@ -1,3 +1,7 @@
+// Fontawesome Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+
 import { useContext } from "react";
 import "./comments.scss";
 import { AuthContext } from "../../context/authContext";
@@ -28,7 +32,9 @@ const Comments = () => {
       <div className="write">
         <img src={currentUser.profilePic} alt="" />
         <input type="text" placeholder="Write a comment..." />
-        <button>Send</button>
+        <button>
+          <FontAwesomeIcon icon={faPaperPlane} />
+        </button>
       </div>
 
       {comments.map((comment) => (

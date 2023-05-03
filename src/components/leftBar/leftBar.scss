@@ -5,8 +5,8 @@
     flex: 2;
     position: sticky;
     position: -webkit-sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
+    top: 50px;
+    height: calc(100vh - 50px);
     overflow: auto;
     background-color: themed("bg");
     color: themed("textColor");

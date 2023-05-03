@@ -27,6 +27,11 @@ const Stories = () => {
       name: "Kazuha",
       img: "https://i.pinimg.com/564x/dc/63/54/dc6354592fe60de131c02239aedcc758.jpg",
     },
+    // {
+    //   id: 5,
+    //   name: "Kazuha",
+    //   img: "https://i.pinimg.com/564x/dc/63/54/dc6354592fe60de131c02239aedcc758.jpg",
+    // },
   ];
   return (
     <div className="stories">

@@ -1,4 +1,5 @@
-import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./rightBar.scss";
 
 const RightBar = () => {
@@ -18,7 +19,7 @@ const RightBar = () => {
               </p>
             </div>
             <button>
-              <CloseRoundedIcon />
+              <FontAwesomeIcon icon={faXmark} />
             </button>
           </div>
 
@@ -33,7 +34,7 @@ const RightBar = () => {
               </p>
             </div>
             <button>
-              <CloseRoundedIcon />
+              <FontAwesomeIcon icon={faXmark} />
             </button>
           </div>
         </div>

@@ -3,7 +3,7 @@
 .stories {
   display: flex;
   gap: 10px;
-  height: 250px;
+  height: 200px;
   margin-bottom: 30px;
 
   @include mobile {
@@ -31,14 +31,14 @@
 
   .story {
     flex: 1;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
 
     @include mobile {
       flex: none;
-      width: 80px;
-      height: 120px;
+      width: 100px;
+      height: 180px;
     }
 
     img {

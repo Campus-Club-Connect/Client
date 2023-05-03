@@ -3,7 +3,7 @@ $themes: (
     textColor: #000000,
     bg: #ffffff,
     logo: #213266,
-    bgSoft: #f6f3f3,
+    bgSoft: #f2f2f2,
     textColorSoft: #555,
     border: #d3d3d3,
   ),
@@ -16,6 +16,10 @@ $themes: (
     border: #444,
   ),
 );
+
+body {
+  background-color: themed("bg");
+}
 
 @mixin themify($themes) {
   @each $theme, $map in $themes {
@@ -42,7 +46,7 @@ $themes: (
 
 // Responsiveness
 
-@mixin mobile{
+@mixin mobile {
   @media (max-width: 500px) {
     @content;
   }

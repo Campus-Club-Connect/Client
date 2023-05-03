@@ -4,8 +4,8 @@
   @include themify($themes) {
     flex: 3;
     position: sticky;
-    top: 70px;
-    height: calc(100vh - 70px);
+    top: 50px;
+    height: calc(100vh - 50px);
     overflow: scroll;
     background-color: themed("bgSoft");
 
@@ -31,7 +31,7 @@
 
         span {
           color: gray;
-          font-size: 1rem;
+          font-size: 0.9rem;
         }
 
         .user {
@@ -74,28 +74,29 @@
             span {
               font-weight: 500;
               color: themed("textColor");
+              cursor: pointer;
+            }
+            span:hover{
+              text-decoration: underline;
             }
           }
 
           button {
             border: none;
-            background-color: transparent;
+            background-color: themed("bg");
             color: themed("textColor");
             cursor: pointer;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
 
             display: flex;
             align-items: center;
             justify-content: center;
-
-            // &:first-child {
-            //   background-color: #2c3b63;
-            // }
-            // &:last-child {
-            //   background-color: #2c3b63;
-            // }
+          }
+          button:hover {
+            background-color: themed("bgSoft");
+            transition: 0.2s;
           }
         }
       }
