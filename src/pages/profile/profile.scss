@@ -7,11 +7,21 @@
     $width: 150px;
     background-color: themed("bgSoft");
 
+    @include mobile {
+      $spacing: 1.2rem;
+      $height: 100px;
+      $width: 100px;
+    }
+
     .profileContainer {
       width: 80%;
       margin: auto;
       border-radius: 20px;
       overflow: hidden;
+
+      @include mobile {
+        width: 100%;
+      }
 
       .images {
         width: 100%;
@@ -73,7 +83,12 @@
             border-radius: calc($width - (0.5 * $width));
             cursor: pointer;
             transition: 0.2s;
+
+            @include mobile {
+              font-size: 12px;
+            }
           }
+
           button:hover {
             background: #e7e7e8;
             transition: 0.2s;
@@ -94,9 +109,17 @@
             justify-content: space-between;
             align-items: center;
             gap: 2rem;
+
+            @include mobile {
+              gap: 1rem;
+            }
             span {
               font-size: 1.4rem;
               font-weight: 600;
+
+              @include mobile {
+                font-size: 1rem;
+              }
             }
             h3 {
               font-weight: normal;
@@ -107,6 +130,10 @@
               text-align: center;
               border-radius: 20px;
               cursor: pointer;
+
+              @include mobile {
+                font-size: 12px;
+              }
             }
             h3:hover {
               background-color: #283559;
@@ -120,15 +147,24 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 1.6rem;
+
             h3 {
               font-size: 1rem;
               font-weight: 400;
+
+              @include mobile {
+                font-size: 0.8rem;
+              }
             }
             .clubs {
               gap: 1rem;
               display: flex;
               justify-content: space-around;
               align-items: center;
+
+              @include mobile {
+                gap: 8px;
+              }
               .images {
                 width: 40px;
                 height: 40px;
@@ -137,6 +173,11 @@
                 overflow: hidden;
                 padding: 2px;
                 cursor: pointer;
+
+                @include mobile {
+                  width: 35px;
+                  height: 35px;
+                }
 
                 img {
                   width: 100%;
