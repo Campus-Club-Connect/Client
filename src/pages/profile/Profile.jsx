@@ -33,7 +33,7 @@ const Profile = () => {
           <div className="uDetails">
             <div className="uTitle">
               <span>Naganohara Yoimiya</span>
-              <h3>Member</h3>
+              <h3>M</h3>
             </div>
             <div className="clubAffiliations">
               <h3>Club Affiliations:</h3>
