@@ -30,7 +30,10 @@ const Post = ({ post }) => {
             </div>
           </div>
 
-          <FontAwesomeIcon icon={faEllipsis} className="moreOptions" />
+          <div className="moreActions">
+            <FontAwesomeIcon icon={faLocation} className="pin" />
+            <FontAwesomeIcon icon={faEllipsis} className="moreOptions" />
+          </div>
         </div>
 
         <div className="content">
@@ -65,9 +68,8 @@ const Post = ({ post }) => {
             <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
             <p>Share</p>
           </div>
-          <div className="item">
+          <div className="item pin">
             <FontAwesomeIcon icon={faLocation} />
-            <FontAwesomeIcon icon="fa-regular fa-location" />
             <p>Pin</p>
           </div>
         </div>

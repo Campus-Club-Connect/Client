@@ -53,15 +53,40 @@
           }
         }
 
-        .moreOptions {
-          cursor: pointer;
-          padding: 8px 9px;
-          font-size: 1.2rem;
-          background-color: transparent;
-          border-radius: 50%;
-          transition: 0.2s;
+        .moreActions {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.7rem;
+
+          .pin {
+            display: none;
+            padding: 8px 9px;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: 0.2s;
+            @include mobile {
+              display: block;
+            }
+          }
+          .moreOptions {
+            cursor: pointer;
+            padding: 8px 9px;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border-radius: 50%;
+            transition: 0.2s;
+          }
+          .moreOptions:hover {
+            background-color: themed("bgSoft");
+            transition: 0.2s;
+
+            @include mobile {
+              background-color: transparent;
+            }
+          }
         }
-        .moreOptions:hover {
+        .moreActions *:active {
           background-color: themed("bgSoft");
           transition: 0.2s;
         }
@@ -141,8 +166,13 @@
             font-size: 13px;
           }
         }
+        @include mobile {
+          .pin {
+            display: none;
+          }
+        }
         .item:hover {
-          background-color: themed('bgSoft');
+          background-color: themed("bgSoft");
           transition: 0.2s;
         }
       }
