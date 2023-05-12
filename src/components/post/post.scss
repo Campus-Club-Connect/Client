@@ -58,6 +58,33 @@
           justify-content: center;
           align-items: center;
           gap: 0.7rem;
+          position: relative;
+
+          button {
+            position: absolute;
+            top: 130%;
+            right: 5%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background-color: #f0544f;
+            padding: 8px 1rem;
+            border-radius: 8px 0px 8px 8px;
+            cursor: pointer;
+            color: white;
+            transition: 0.1s;
+          }
+
+          button:hover {
+            filter: brightness(95%);
+            transition: 0.1s;
+          }
+
+          button:active {
+            transform: translate(-50%, -50%);
+            scale: 98%;
+            background-color: #f0544f;
+            filter: brightness(95%);
+          }
 
           .pin {
             display: none;
@@ -88,7 +115,10 @@
         }
         .moreActions *:active {
           background-color: themed("bgSoft");
-          transition: 0.2s;
+          transition: 0s;
+          scale: 93%;
+          transform: perspective(1px) translateZ(0);
+          backface-visibility: hidden;
         }
       }
 
@@ -99,7 +129,7 @@
         }
 
         img {
-          background-color: #c5c5c5;
+          background-color: themed("bg");
           width: 100%;
           max-height: 500px;
           object-fit: contain;
@@ -108,6 +138,11 @@
           border-top: 1px solid #e5e5e3;
           border-bottom: 1px solid #e5e5e3;
           cursor: pointer;
+          transition: 0.2s;
+        }
+        img:hover {
+          transition: 0.2s;
+          background-color: themed("bgSoft");
         }
       }
 
@@ -174,6 +209,12 @@
         .item:hover {
           background-color: themed("bgSoft");
           transition: 0.2s;
+        }
+        .item:active {
+          transition: 0s;
+          scale: 97%;
+          transform: perspective(1px) translateZ(0);
+          backface-visibility: hidden;
         }
       }
     }

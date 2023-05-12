@@ -21,9 +21,9 @@
       padding: 20px;
 
       .item {
-        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        // -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        // -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        // box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
         padding: 20px;
         margin-bottom: 8px;
         background-color: themed("bg");
@@ -89,6 +89,7 @@
             border-radius: 50%;
             width: 25px;
             height: 25px;
+            padding: 1em;
 
             display: flex;
             align-items: center;
@@ -97,6 +98,11 @@
           button:hover {
             background-color: themed("bgSoft");
             transition: 0.2s;
+          }
+          button:active {
+            scale: 90%;
+            transform: perspective(1px) translateZ(0);
+            backface-visibility: hidden;
           }
         }
       }

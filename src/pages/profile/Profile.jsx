@@ -11,10 +11,13 @@ import Posts from "../../components/posts/Posts";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { makeRequest } from "../../axios";
 import { useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
+import Update from "../../components/update/Update";
 
 const Profile = () => {
+  const [openUpdate, setOpenUpdate] = useState(false);
+
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split("/")[2]);
@@ -31,7 +34,6 @@ const Profile = () => {
         return res.data;
       })
   );
-
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
@@ -60,9 +62,9 @@ const Profile = () => {
         <>
           <div className="profileContainer">
             <div className="images">
-              <img src={data.coverPic} alt="" className="cover" />
+              <img src={"/upload/" + data.coverPic} alt="" className="cover" />
               <div className="profilePic">
-                <img src={data.profilePic} alt="" />
+                <img src={"/upload/" + data.profilePic} alt="" />
               </div>
             </div>
 
@@ -71,7 +73,9 @@ const Profile = () => {
                 {aIsLoading ? (
                   "loading"
                 ) : userId === currentUser.id ? (
-                  <button>Edit profile</button>
+                  <button onClick={() => setOpenUpdate(true)}>
+                    Edit profile
+                  </button>
                 ) : (
                   <button onClick={handleFollow}>
                     {affiliationData.includes(currentUser.id)
@@ -117,6 +121,7 @@ const Profile = () => {
           </div>
         </>
       )}
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );
 };

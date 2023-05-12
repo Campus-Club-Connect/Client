@@ -29,10 +29,12 @@ const Navbar = () => {
       </div>
 
       <div className="center">
-        <div className="nav">
-          <FontAwesomeIcon icon={faHouse} />
-          <p>Home</p>
-        </div>
+        <Link to={`/`} style={{ textDecoration: "none", color: "inherit" }}>
+          <div className="nav">
+            <FontAwesomeIcon icon={faHouse} />
+            <p>Home</p>
+          </div>
+        </Link>
         <div className="nav">
           <FontAwesomeIcon icon={faUserGroup} />
           <p>Clubs</p>

@@ -13,11 +13,21 @@ import { AuthContext } from "../../context/authContext";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
 
   const { isLoading, error, data } = useQuery(["likes", post.id], () =>
     makeRequest.get("/likes?postId=" + post.id).then((res) => {
+      return res.data;
+    })
+  );
+  const {
+    isLoading: cIsLoading,
+    error: cError,
+    data: cData,
+  } = useQuery(["comments", post.id], () =>
+    makeRequest.get("/comments?postId=" + post.id).then((res) => {
       return res.data;
     })
   );
@@ -38,8 +48,24 @@ const Post = ({ post }) => {
     }
   );
 
+  const deleteMutation = useMutation(
+    (postId) => {
+      return makeRequest.delete("/posts/" + postId);
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries(["posts"]);
+      },
+    }
+  );
+
   const handleLike = () => {
     mutation.mutate(data.includes(currentUser.id));
+  };
+
+  const handleDelete = () => {
+    deleteMutation.mutate(post.id);
   };
 
   return (
@@ -47,7 +73,7 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePic} alt="" />
+            <img src={"/upload/" + post.profilePic} alt="" />
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -61,14 +87,20 @@ const Post = ({ post }) => {
 
           <div className="moreActions">
             <FontAwesomeIcon icon={faLocation} className="pin" />
-            <FontAwesomeIcon icon={faEllipsis} className="moreOptions" />
+            <FontAwesomeIcon
+              icon={faEllipsis}
+              className="moreOptions"
+              onClick={() => setMenuOpen(!menuOpen)}
+            />
+            {menuOpen && post.userId === currentUser.id && (
+              <button onClick={handleDelete}>Delete</button>
+            )}
           </div>
         </div>
 
         <div className="content">
           <p>{post.desc}</p>
-          <img src={"./upload/" + post.img} alt="" />
-          <img src={post.img} alt="" />
+          <img src={"/upload/" + post.img} alt="" />
         </div>
 
         <div className="info">
@@ -77,7 +109,7 @@ const Post = ({ post }) => {
             <p>{data?.length}</p>
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
-            <p>19 Comments</p>
+            <p>{cData?.length} comments</p>
           </div>
         </div>
 

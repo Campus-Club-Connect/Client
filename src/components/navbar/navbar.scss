@@ -49,6 +49,19 @@
         gap: 5px;
       }
 
+      div {
+        transition: 0.2s;
+      }
+      div:hover {
+        transition: 0.2s;
+      }
+
+      div:active {
+        scale: 98%;
+        transform: perspective(1px) translateZ(0);
+        backface-visibility: hidden;
+      }
+
       .nav {
         display: flex;
         flex-direction: column;

@@ -46,12 +46,13 @@ const Share = () => {
     setDesc("");
     setFile(null);
   };
+
   return (
     <div className="share">
       <div className="container">
         <div className="top">
           <div className="left">
-            <img src={currentUser.profilePic} alt="" />
+            <img src={"/upload/" + currentUser.profilePic} alt="" />
             <input
               type="text"
               placeholder={`Post something about your club? ${currentUser.name}`}

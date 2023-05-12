@@ -15,78 +15,87 @@ const LeftBar = () => {
   return (
     <div className="leftBar">
       <div className="container">
-        <div className="menu">
-          <div className="user">
-            <img src={currentUser.profilePic} alt="" />
-            <span>{currentUser.name}</span>
+        <div className="profileContainer">
+          <div className="images">
+            <img
+              src={"/upload/" + currentUser.coverPic}
+              className="cover"
+              alt=""
+            />
+            <div className="profilePic">
+              <img src={"/upload/" + currentUser.profilePic} alt="" />
+            </div>
           </div>
+
+          <div className="uInfo">
+            <div className="uEdit">
+              <button>Show CCA</button>
+            </div>
+            <div className="uDetails">
+              <div className="uTitle">
+                <span>{currentUser.name}</span>
+                <h3>A</h3>
+              </div>
+              <div className="clubAffiliations">
+                <h3>Club Affiliations:</h3>
+                <div className="clubs">
+                  <div className="images">
+                    <img src={Pyro} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Hydro} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Dendro} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Cryo} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Electro} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Geo} alt="" />
+                  </div>
+                  <div className="images">
+                    <img src={Anemo} alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <div className="menu">
+          <span>Clubs</span>
           <div className="item">
             <img src={Anemo} alt="" />
-            <span>Anemo</span>
+            <span>Start-Up</span>
           </div>
           <div className="item">
             <img src={Pyro} alt="" />
-            <span>Pyro</span>
+            <span>LIA</span>
           </div>
           <div className="item">
             <img src={Hydro} alt="" />
-            <span>Hydro</span>
+            <span>MMD</span>
           </div>
           <div className="item">
             <img src={Cryo} alt="" />
-            <span>Cryo</span>
+            <span>Rovers</span>
           </div>
           <div className="item">
             <img src={Dendro} alt="" />
-            <span>Dendro</span>
+            <span>Integrity</span>
           </div>
           <div className="item">
             <img src={Geo} alt="" />
-            <span>Geo</span>
+            <span>Tarayana</span>
           </div>
           <div className="item">
             <img src={Electro} alt="" />
-            <span>Electro</span>
-          </div>
-        </div>
-        <hr />
-        <div className="menu">
-          <span>Utils</span>
-          <div className="item">
-            <img src={Anemo} alt="" />
-            <span>Anemo</span>
-          </div>
-          <div className="item">
-            <img src={Pyro} alt="" />
-            <span>Pyro</span>
-          </div>
-          <div className="item">
-            <img src={Hydro} alt="" />
-            <span>Hydro</span>
-          </div>
-          <div className="item">
-            <img src={Anemo} alt="" />
-            <span>Anemo</span>
-          </div>
-          <div className="item">
-            <img src={Pyro} alt="" />
-            <span>Pyro</span>
-          </div>
-          <div className="item">
-            <img src={Hydro} alt="" />
-            <span>Hydro</span>
-          </div>
-          <div className="item">
-            <img src={Anemo} alt="" />
-            <span>Anemo</span>
-          </div>
-          <div className="item">
-            <img src={Pyro} alt="" />
-            <span>Pyro</span>
-          </div>
-          <div className="item">
-            <img src={Hydro} alt="" />
-            <span>Hydro</span>
+            <span>G-Tech</span>
           </div>
         </div>
       </div>
