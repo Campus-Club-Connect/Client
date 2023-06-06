@@ -34,44 +34,63 @@ const Register = () => {
   return (
     <div className="register">
       <div className="card">
-        <div className="left">
-          <h1>Welcome!</h1>
-          <div className="option">
-            <p>Already have an accounnt?</p>
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
-          </div>
-        </div>
-        <div className="right">
+        <div className="logo">Campus Club Connect</div>
+
+        <div className="registerCard">
           <h1>Register</h1>
           <form action="">
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={handleChange}
-            />
+            <div className="inputBox">
+              <input type="text" name="name" required onChange={handleChange} />
+              <label className="placeholder">Full Name</label>
+            </div>
+            <div className="inputBox">
+              <input
+                type="text"
+                name="username"
+                onChange={handleChange}
+                required
+              />
+              <label className="placeholder">Username</label>
+            </div>
+            <div className="inputBox">
+              <input
+                type="email"
+                name="email"
+                required
+                onChange={handleChange}
+              />
+              <label className="placeholder">Email</label>
+            </div>
+            <div className="inputBox">
+              <input
+                type="password"
+                name="password"
+                required
+                onChange={handleChange}
+              />
+              <label className="placeholder">Password</label>
+            </div>
+
             {err && err}
-            <button onClick={handleClick}>Register</button>
+
+            <div class="agreement">
+              <p>
+                By clicking login, you agree to our{" "}
+                <a href="#">Terms and Conditions</a> and{" "}
+                <a href="#">Privacy Policies</a>
+              </p>
+            </div>
+            <div className="buttonSpace">
+              <button onClick={handleClick} id="evil-button">
+                Register
+              </button>
+            </div>
+            <div className="option">
+              <p>Already have an accounnt?</p>
+              <Link to="/login">
+                <p>Login</p>
+              </Link>
+            </div>
           </form>
         </div>
       </div>

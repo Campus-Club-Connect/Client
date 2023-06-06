@@ -5,9 +5,11 @@
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+
     border-radius: 8px;
     background-color: themed("bg");
     color: themed("textColor");
+    
 
     .container {
       .user {
@@ -122,7 +124,7 @@
         }
       }
 
-      .content {
+      .post-content {
         p {
           font-size: 0.875rem;
           padding: 0px 16px;
@@ -135,8 +137,8 @@
           object-fit: contain;
           margin-top: 10px;
 
-          border-top: 1px solid #e5e5e3;
-          border-bottom: 1px solid #e5e5e3;
+          border-top: 1px solid #e5e5e3b6;
+          border-bottom: 1px solid #e5e5e3b6;
           cursor: pointer;
           transition: 0.2s;
         }
@@ -175,6 +177,7 @@
       }
       .actions {
         border-top: 1px solid #e5e5e3;
+        border-bottom: 1px solid #e5e5e3;
         width: 95%;
         margin: auto 8px auto 8px;
         padding: 2px;

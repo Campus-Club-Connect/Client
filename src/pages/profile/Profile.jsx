@@ -1,12 +1,11 @@
 import "./profile.scss";
-import Anemo from "./../../assets/Element_Anemo.png";
-import Pyro from "./../../assets/Element_Pyro.png";
-import Cryo from "./../../assets/Element_Cryo.png";
-import Dendro from "./../../assets/Element_Dendro.png";
-import Electro from "./../../assets/Element_Electro.png";
-import Geo from "./../../assets/Element_Geo.png";
-import Hydro from "./../../assets/Element_Hydro.png";
-import Posts from "../../components/posts/Posts";
+import gtech from "./../../assets/club-logos/gtech.jpg";
+import integrity from "./../../assets/club-logos/integrity.jpg";
+import lia from "./../../assets/club-logos/lia.jpg";
+import mmd from "./../../assets/club-logos/mmd.jpg";
+import rovers from "./../../assets/club-logos/rovers.jpg";
+import startup from "./../../assets/club-logos/startup.jpg";
+import tarayana from "./../../assets/club-logos/tarayana.jpg";
 
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { makeRequest } from "../../axios";
@@ -93,31 +92,30 @@ const Profile = () => {
                   <h3>Club Affiliations:</h3>
                   <div className="clubs">
                     <div className="images">
-                      <img src={Pyro} alt="" />
+                      <img src={integrity} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Hydro} alt="" />
+                      <img src={startup} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Dendro} alt="" />
+                      <img src={lia} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Cryo} alt="" />
+                      <img src={mmd} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Electro} alt="" />
+                      <img src={rovers} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Geo} alt="" />
+                      <img src={tarayana} alt="" />
                     </div>
                     <div className="images">
-                      <img src={Anemo} alt="" />
+                      <img src={gtech} alt="" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <Posts />
           </div>
         </>
       )}

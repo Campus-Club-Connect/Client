@@ -85,14 +85,22 @@
         .right {
           button {
             border: none;
-            padding: 5px 18px;
+            padding: 8px 20px;
             color: white;
             cursor: pointer;
             background-color: #213266;
-            border-radius: 200px;
+            border-radius: 500px;
+
+            transition: 0.2s;
           }
           button:hover {
-            filter: brightness(90%);
+            filter: brightness(98%);
+            scale: 102%;
+            transition: 0.2s;
+          }
+          button:active {
+            scale: 100%;
+            transition: 0.2s;
           }
         }
       }

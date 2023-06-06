@@ -12,11 +12,12 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
+    overflow: auto;
 
     .wrapper {
       margin: auto;
+      margin-top: 5%;
       width: 40%;
-      height: 70%;
       background-color: themed("bg");
       padding: 50px;
       z-index: 999;
@@ -27,6 +28,7 @@
       -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
       box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
       position: relative;
+      border-radius: 8px;
 
       @include mobile {
         width: 100%;
@@ -34,7 +36,8 @@
       }
 
       h1 {
-        color: lightgrey;
+        color: themed("textColor");
+        margin-bottom: 2rem;
 
         @include mobile {
           font-size: 20px;
@@ -44,39 +47,73 @@
       form {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 20px;
+        color: themed("textColor");
 
         .files {
           display: flex;
+          flex-direction: column;
           flex-wrap: wrap;
           gap: 50px;
+          margin-bottom: 30px;
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 1.3rem;
         }
 
         label {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          color: gray;
-          font-size: 14px;
+          gap: 2rem;
+          .editContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
 
-          .imgContainer {
-            position: relative;
+            .edit {
+              color: themed("textColor");
+              cursor: pointer;
+              transition: 0.2s ease-in-out;
+              padding: 0.5em 1em;
+              border-radius: 208px;
+            }
+            .edit:hover {
+              background-color: themed("bgSoft");
+            }
+            .edit:active {
+              scale: 96%;
+              transform: perspective(1px) translateZ(0);
+              backface-visibility: hidden;
+              transition: 0.1s;
+            }
+          }
+
+          .profileImgContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             img {
-              width: 100px;
-              height: 100px;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
               object-fit: cover;
             }
+          }
+          .coverImgContainer {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            .icon {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              margin: auto;
-              font-size: 30px;
-              color: lightgray;
-              cursor: pointer;
+            img {
+              width: 80%;
+              height: 30vh;
+              border-radius: 8px;
+              object-fit: cover;
             }
           }
         }
@@ -89,24 +126,54 @@
           background-color: transparent;
         }
 
-        button {
-          border: none;
-          padding: 10px;
-          cursor: pointer;
-          color: white;
-          background-color: #5271ff;
+        .submission {
+          display: flex;
+          justify-content: space-around;
+          button {
+            border: none;
+            padding: 1em 2em;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            background-color: #000000;
+          }
+          .cancel {
+            border: 2px solid themed("textColor");
+            background-color: transparent;
+            color: themed("textColor");
+          }
+          button:hover {
+            scale: 101%;
+          }
+          button:active {
+            scale: 100%;
+          }
         }
       }
 
       .close {
         position: absolute;
         top: 10px;
-        right: 20px;
+        right: 10px;
+        font-size: 1.2rem;
         border: none;
-        background-color: #f0544f;
-        padding: 5px;
+        border-radius: 50%;
+        background-color: themed("bg");
+        padding: 0.6rem 0.8rem;
         cursor: pointer;
-        color: white;
+        color: themed("textColor");
+        transition: 0.2s;
+      }
+      .close:hover {
+        background-color: themed("bgSoft");
+        transition: 0.2s;
+      }
+      .close:active {
+        background-color: themed("bgSoft");
+        transition: 0.2s;
+        scale: 90%;
+        transform: perspective(1px) translateZ(0);
+        backface-visibility: hidden;
       }
     }
   }

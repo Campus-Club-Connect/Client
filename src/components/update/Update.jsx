@@ -2,6 +2,8 @@ import { useState } from "react";
 import { makeRequest } from "../../axios";
 import "./update.scss";
 import { useMutation, useQueryClient } from "react-query";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Update = ({ setOpenUpdate, user }) => {
   const [cover, setCover] = useState(null);
@@ -56,6 +58,8 @@ const Update = ({ setOpenUpdate, user }) => {
     setOpenUpdate(false);
     setCover(null);
     setProfile(null);
+
+    window.location.reload();
   };
   return (
     <div className="update">
@@ -63,29 +67,12 @@ const Update = ({ setOpenUpdate, user }) => {
         <h1>Update Your Profile</h1>
         <form>
           <div className="files">
-            <label htmlFor="cover">
-              <span>Cover Picture</span>
-              <div className="imgContainer">
-                <img
-                  src={
-                    cover
-                      ? URL.createObjectURL(cover)
-                      : "/upload/" + user.coverPic
-                  }
-                  alt=""
-                />
-                {/* <CloudUploadIcon className="icon" /> */}
-              </div>
-            </label>
-            <input
-              type="file"
-              id="cover"
-              style={{ display: "none" }}
-              onChange={(e) => setCover(e.target.files[0])}
-            />
             <label htmlFor="profile">
-              <span>Profile Picture</span>
-              <div className="imgContainer">
+              <div className="editContainer">
+                <span>Profile Picture</span>
+                <p className="edit">Edit</p>
+              </div>
+              <div className="profileImgContainer">
                 <img
                   src={
                     profile
@@ -94,7 +81,6 @@ const Update = ({ setOpenUpdate, user }) => {
                   }
                   alt=""
                 />
-                {/* <CloudUploadIcon className="icon" /> */}
               </div>
             </label>
             <input
@@ -102,6 +88,29 @@ const Update = ({ setOpenUpdate, user }) => {
               id="profile"
               style={{ display: "none" }}
               onChange={(e) => setProfile(e.target.files[0])}
+            />
+
+            <label htmlFor="cover">
+              <div className="editContainer">
+                <span>Cover Picture</span>
+                <p className="edit">Edit</p>
+              </div>
+              <div className="coverImgContainer">
+                <img
+                  src={
+                    cover
+                      ? URL.createObjectURL(cover)
+                      : "/upload/" + user.coverPic
+                  }
+                  alt=""
+                />
+              </div>
+            </label>
+            <input
+              type="file"
+              id="cover"
+              style={{ display: "none" }}
+              onChange={(e) => setCover(e.target.files[0])}
             />
           </div>
           <label>Email</label>
@@ -125,10 +134,15 @@ const Update = ({ setOpenUpdate, user }) => {
             name="name"
             onChange={handleChange}
           />
-          <button onClick={handleClick}>Update</button>
+          <div className="submission">
+            <button className="cancel" onClick={() => setOpenUpdate(false)}>
+              Cancel
+            </button>
+            <button onClick={handleClick}>Update</button>
+          </div>
         </form>
         <button className="close" onClick={() => setOpenUpdate(false)}>
-          close
+          <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
     </div>

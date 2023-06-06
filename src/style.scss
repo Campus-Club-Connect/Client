@@ -6,6 +6,7 @@ $themes: (
     bgSoft: #f2f2f2,
     textColorSoft: #555,
     border: #d3d3d3,
+    navbarSizeChange: 88px,
   ),
   dark: (
     textColor: #f5f5f5,
@@ -14,9 +15,9 @@ $themes: (
     bgSoft: #333,
     textColorSoft: #d3d3d3,
     border: #444,
+    navbarSizeChange: 88px,
   ),
 );
-
 body {
   background-color: themed("bg");
 }
@@ -56,3 +57,43 @@ body {
 //     @content;
 //   }
 // }
+
+.motherContainer {
+  @include themify($themes) {
+    background-color: themed("bg");
+    height: calc(100vh - themed("navbarSizeChange"));
+
+    overflow: hidden;
+  }
+}
+
+.mainBody {
+  @include themify($themes) {
+    background-color: themed("bg");
+    height: calc(100vh - themed("navbarSizeChange"));
+
+    overflow: hidden;
+  }
+}
+
+* {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

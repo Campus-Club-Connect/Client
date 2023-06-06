@@ -1,8 +1,7 @@
 import "./post.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import { faLocation } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Comments from "../comments/Comments";
 import { useContext, useState } from "react";
@@ -22,6 +21,7 @@ const Post = ({ post }) => {
       return res.data;
     })
   );
+
   const {
     isLoading: cIsLoading,
     error: cError,
@@ -31,6 +31,22 @@ const Post = ({ post }) => {
       return res.data;
     })
   );
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const {
+    isLoading: pIsLoading,
+    error: pError,
+    data: pData,
+  } = useQuery(["pins", post.id], () =>
+    makeRequest.get("/pins?postId=" + post.id).then((res) => {
+      return res.data;
+    })
+  );
+
+  // const toggleBookmark = () => {
+  //   setIsBookmarked(!isBookmarked);
+  // };
 
   const queryClient = useQueryClient();
 
@@ -44,6 +60,24 @@ const Post = ({ post }) => {
       onSuccess: () => {
         // Invalidate and refetch
         queryClient.invalidateQueries(["likes"]);
+      },
+    }
+  );
+
+  const pMutation = useMutation(
+    (pinned) => {
+      console.log(pinned);
+      if (pinned) return makeRequest.delete("/pins?postId=" + post.id);
+      const pinData = {
+        postId: post.id,
+        desc: post.desc,
+      };
+      return makeRequest.post("/pins", pinData);
+    },
+    {
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries(["pins"]);
       },
     }
   );
@@ -64,6 +98,9 @@ const Post = ({ post }) => {
     mutation.mutate(data.includes(currentUser.id));
   };
 
+  const handlePin = () => {
+    pMutation.mutate(pData.includes(currentUser.id));
+  };
   const handleDelete = () => {
     deleteMutation.mutate(post.id);
   };
@@ -73,7 +110,9 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={"/upload/" + post.profilePic} alt="" />
+            <Link to={`/profile/${post.userId}`}>
+              <img src={"/upload/" + post.profilePic} alt="" />
+            </Link>
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -86,7 +125,7 @@ const Post = ({ post }) => {
           </div>
 
           <div className="moreActions">
-            <FontAwesomeIcon icon={faLocation} className="pin" />
+            <FontAwesomeIcon icon={faBookmark} className="pin" />
             <FontAwesomeIcon
               icon={faEllipsis}
               className="moreOptions"
@@ -98,7 +137,7 @@ const Post = ({ post }) => {
           </div>
         </div>
 
-        <div className="content">
+        <div className="post-content">
           <p>{post.desc}</p>
           <img src={"/upload/" + post.img} alt="" />
         </div>
@@ -133,8 +172,14 @@ const Post = ({ post }) => {
             <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
             <p>Share</p>
           </div>
-          <div className="item pin">
-            <FontAwesomeIcon icon={faLocation} />
+          <div className="item pin" onClick={handlePin}>
+            {pIsLoading ? (
+              "loading"
+            ) : pData.includes(currentUser.id) ? (
+              <FontAwesomeIcon icon={faBookmark} style={{ color: "black" }} />
+            ) : (
+              <FontAwesomeIcon icon="fa-regular fa-bookmark" />
+            )}
             <p>Pin</p>
           </div>
         </div>

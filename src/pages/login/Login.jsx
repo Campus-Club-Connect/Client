@@ -2,6 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
+import Startup from "./../../assets/columnBanner/startup.jpg";
+import Gtech from "./../../assets/columnBanner/gtech.jpg";
+import Integrity from "./../../assets/columnBanner/integrity.jpg";
+import LIA from "./../../assets/columnBanner/lia.jpg";
+import MMD from "./../../assets/columnBanner/mmd.jpg";
+import Rovers from "./../../assets/columnBanner/rovers.jpg";
+import Tarayana from "./../../assets/columnBanner/tarayana.jpg";
+import Logo from "./../../assets/cccLogo.png";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -31,34 +39,69 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="card">
-        <div className="left">
-          <h1>Welcome!</h1>
-          <div className="option">
-            <p>No Account? Create a New one!</p>
-            <Link to="/register">
-              <button>Register</button>
-            </Link>
-          </div>
+      <div className="bgClubs">
+        <div className="bgClub">
+          <img src={LIA} alt="" />
         </div>
-        <div className="right">
-          <h1>Login</h1>
+        <div className="bgClub">
+          <img src={Integrity} alt="" />
+        </div>
+        <div className="bgClub">
+          <img src={MMD} alt="" />
+        </div>
+        <div className="bgClub">
+          <img src={Startup} alt="" />
+        </div>
+        <div className="bgClub">
+          <img src={Rovers} alt="" />
+        </div>
+        <div className="bgClub">
+          <img src={Tarayana} alt="" />
+        </div>
+        <div className="bgClub">
+          <img src={Gtech} alt="" />
+        </div>
+      </div>
+      <div className="card">
+        <div className="loginCard">
+          <div className="logo">
+            <img src={Logo} alt="" />
+          </div>
           <form action="">
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleChange}
-            />
+            <div className="inputBox">
+              <input
+                type="text"
+                name="username"
+                onChange={handleChange}
+                required
+              />
+              <label className="placeholder">Username</label>
+            </div>
+            <div className="inputBox">
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                required
+              />
+              <label className="placeholder">Password</label>
+            </div>
+
             {err && err}
-            <button onClick={handleLogin}>Login</button>
+            <div className="buttonSpace">
+              <button onClick={handleLogin} id="evil-button">
+                Login
+              </button>
+            </div>
           </form>
+          <div className="option">
+            <p>
+              <Link to="/register" className="anchorLink">
+                Sign up{" "}
+              </Link>
+              a new one!
+            </p>
+          </div>
         </div>
       </div>
     </div>

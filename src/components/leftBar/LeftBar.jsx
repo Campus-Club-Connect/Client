@@ -1,102 +1,105 @@
 import "./leftBar.scss";
-import Anemo from "./../../assets/Element_Anemo.png";
-import Pyro from "./../../assets/Element_Pyro.png";
-import Cryo from "./../../assets/Element_Cryo.png";
-import Dendro from "./../../assets/Element_Dendro.png";
-import Electro from "./../../assets/Element_Electro.png";
-import Geo from "./../../assets/Element_Geo.png";
-import Hydro from "./../../assets/Element_Hydro.png";
-import { AuthContext } from "../../context/authContext";
-import { useContext } from "react";
+import RoversBannerColor from "./../../assets/banner/color/rovers.png";
+import StartupBannerColor from "./../../assets/banner/color/startup.png";
+import GtechBannerColor from "./../../assets/banner/color/gtech.png";
+import LIABannerColor from "./../../assets/banner/color/lia.png";
+import IntegrityBannerColor from "./../../assets/banner/color/integrity.png";
+import MMDBannerColor from "./../../assets/banner/color/mmd.png";
+import TarayanaBannerColor from "./../../assets/banner/color/tarayana.png";
+import { Link } from "react-router-dom";
 
 const LeftBar = () => {
-  const { currentUser } = useContext(AuthContext);
-
   return (
     <div className="leftBar">
       <div className="container">
-        <div className="profileContainer">
-          <div className="images">
-            <img
-              src={"/upload/" + currentUser.coverPic}
-              className="cover"
-              alt=""
-            />
-            <div className="profilePic">
-              <img src={"/upload/" + currentUser.profilePic} alt="" />
-            </div>
-          </div>
-
-          <div className="uInfo">
-            <div className="uEdit">
-              <button>Show CCA</button>
-            </div>
-            <div className="uDetails">
-              <div className="uTitle">
-                <span>{currentUser.name}</span>
-                <h3>A</h3>
-              </div>
-              <div className="clubAffiliations">
-                <h3>Club Affiliations:</h3>
-                <div className="clubs">
-                  <div className="images">
-                    <img src={Pyro} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Hydro} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Dendro} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Cryo} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Electro} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Geo} alt="" />
-                  </div>
-                  <div className="images">
-                    <img src={Anemo} alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr />
         <div className="menu">
-          <span>Clubs</span>
-          <div className="item">
-            <img src={Anemo} alt="" />
-            <span>Start-Up</span>
-          </div>
-          <div className="item">
-            <img src={Pyro} alt="" />
-            <span>LIA</span>
-          </div>
-          <div className="item">
-            <img src={Hydro} alt="" />
-            <span>MMD</span>
-          </div>
-          <div className="item">
-            <img src={Cryo} alt="" />
-            <span>Rovers</span>
-          </div>
-          <div className="item">
-            <img src={Dendro} alt="" />
-            <span>Integrity</span>
-          </div>
-          <div className="item">
-            <img src={Geo} alt="" />
-            <span>Tarayana</span>
-          </div>
-          <div className="item">
-            <img src={Electro} alt="" />
-            <span>G-Tech</span>
-          </div>
+          <Link
+            to={`/clubs/rovers`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={RoversBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/startup`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={StartupBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/gtech`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={GtechBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/lia`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={LIABannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/tarayana`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={TarayanaBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/integrity`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={IntegrityBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/mmd`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={MMDBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            to={`/clubs/new-club-register`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="item">
+              <div className="bg">
+                <img src={StartupBannerColor} alt="" />
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

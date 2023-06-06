@@ -4,10 +4,8 @@
   @include themify($themes) {
     flex: 3;
     position: sticky;
-    top: 58px;
-    height: calc(100vh - 58px);
     overflow: scroll;
-    background-color: themed("bgSoft");
+    background-color: themed("bg");
 
     @include mobile {
       display: none;
@@ -38,8 +36,12 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin: 20px 0px;
+          margin: 10px 0px;
+          padding: 10px;
+          border-radius: 8px;
           font-size: 0.8rem;
+          transition: 0.2s;
+          cursor: pointer;
 
           span {
             font-size: 0.8rem;
@@ -76,14 +78,11 @@
               color: themed("textColor");
               cursor: pointer;
             }
-            span:hover {
-              text-decoration: underline;
-            }
           }
 
           button {
             border: none;
-            background-color: themed("bg");
+            background-color: transparent;
             color: themed("textColor");
             cursor: pointer;
             border-radius: 50%;
@@ -96,7 +95,7 @@
             justify-content: center;
           }
           button:hover {
-            background-color: themed("bgSoft");
+            background-color: themed("bg");
             transition: 0.2s;
           }
           button:active {
@@ -104,6 +103,14 @@
             transform: perspective(1px) translateZ(0);
             backface-visibility: hidden;
           }
+        }
+        .user:hover {
+          transition: 0.2s;
+          background-color: themed("bgSoft");
+        }
+        .user:active {
+          transition: 0.2s;
+          scale: 98%;
         }
       }
     }

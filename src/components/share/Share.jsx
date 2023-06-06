@@ -1,7 +1,7 @@
 import "./share.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
-import { faMap } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from "react-query";
@@ -82,8 +82,8 @@ const Share = () => {
               </div>
             </label>
             <div className="item">
-              <FontAwesomeIcon icon={faMap} />
-              <span>Add Place</span>
+              <FontAwesomeIcon icon={faCalendar} />
+              <span>Add a Date</span>
             </div>
           </div>
           <div className="right">
