@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import MMD from "./../../assets/MMD/MMD.png";
+import MMD from "./../../assets/clubInfo/mmd.png";
 
 const ClubInfoMMD = () => {
   return (

@@ -16,9 +16,7 @@ import Update from "../../components/update/Update";
 
 const Profile = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
-
   const { currentUser } = useContext(AuthContext);
-
   const userId = parseInt(useLocation().pathname.split("/")[2]);
 
   const { isLoading, error, data } = useQuery(["user"], () =>
@@ -26,6 +24,7 @@ const Profile = () => {
       return res.data;
     })
   );
+
   const { isLoading: aIsLoading, data: affiliationData } = useQuery(
     ["affiliation"],
     () =>
@@ -51,6 +50,14 @@ const Profile = () => {
 
   const handleFollow = () => {
     mutation.mutate(affiliationData.includes(currentUser.id));
+  };
+
+  // CCA
+
+  const [CCA, toggleCCA] = useState(true);
+
+  const showCCAHandler = () => {
+    toggleCCA(!CCA);
   };
 
   return (
@@ -114,7 +121,17 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+
+                <div className="uCCA">
+                  <button
+                    className={CCA ? "button-open" : "button-close"}
+                    onClick={showCCAHandler}
+                  >
+                    {CCA ? "Show CCA" : currentUser.cca}
+                  </button>
+                </div>
               </div>
+              
             </div>
           </div>
         </>

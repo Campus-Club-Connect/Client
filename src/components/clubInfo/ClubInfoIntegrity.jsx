@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import Integrity from "./../../assets/Integrity/Integrity.png";
+import Integrity from "./../../assets/clubInfo/integrity.png";
 
 const ClubInfoIntegrity = () => {
   return (
@@ -12,7 +12,7 @@ const ClubInfoIntegrity = () => {
           </div>
           <div className="desc">
             <p>
-              As per the recommen dation by Royal Audit Authority and
+              As per the recommendation by Royal Audit Authority and
               Anti-corruption commission, colleges should incorporate Integrity
               Club to enhance the accountability and proper budget utilization
               of all college resources. The club will facilitate and provide in

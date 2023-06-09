@@ -10,9 +10,13 @@ import { useQuery, useQueryClient, useMutation } from "react-query";
 import { makeRequest } from "../../axios";
 import { AuthContext } from "../../context/authContext";
 
-const ClubPost = ({ post }) => {
+const ClubPost = ({ post, onChildClick }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleItemClick = (id) => {
+    onChildClick(id);
+  };
 
   const { currentUser } = useContext(AuthContext);
 
@@ -106,7 +110,7 @@ const ClubPost = ({ post }) => {
   };
 
   return (
-    <div className="clubPost">
+    <div className="clubPost" onClick={() => handleItemClick(post.id)}>
       <div className="postContainer">
         <div className="user">
           <div className="userInfo">
@@ -168,10 +172,7 @@ const ClubPost = ({ post }) => {
             <FontAwesomeIcon icon="fa-regular fa-comment" />
             <p>Comment</p>
           </div>
-          <div className="item">
-            <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
-            <p>Share</p>
-          </div>
+
           <div className="item pin" onClick={handlePin}>
             {pIsLoading ? (
               "loading"

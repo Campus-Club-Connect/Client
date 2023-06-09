@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import Tarayana from "./../../assets/Tarayana/Tarayana.avif";
+import Tarayana from "./../../assets/clubInfo/tarayana.png";
 
 const ClubInfoTarayana = () => {
   return (

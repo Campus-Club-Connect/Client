@@ -168,10 +168,7 @@ const Post = ({ post }) => {
             <FontAwesomeIcon icon="fa-regular fa-comment" />
             <p>Comment</p>
           </div>
-          <div className="item">
-            <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
-            <p>Share</p>
-          </div>
+
           <div className="item pin" onClick={handlePin}>
             {pIsLoading ? (
               "loading"

@@ -81,10 +81,6 @@ const Share = () => {
                 <span>Add Image</span>
               </div>
             </label>
-            <div className="item">
-              <FontAwesomeIcon icon={faCalendar} />
-              <span>Add a Date</span>
-            </div>
           </div>
           <div className="right">
             <button onClick={handleClick}>Share</button>

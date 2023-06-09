@@ -89,17 +89,6 @@ const LeftBar = () => {
               </div>
             </div>
           </Link>
-
-          <Link
-            to={`/clubs/new-club-register`}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <div className="item">
-              <div className="bg">
-                <img src={StartupBannerColor} alt="" />
-              </div>
-            </div>
-          </Link>
         </div>
       </div>
     </div>

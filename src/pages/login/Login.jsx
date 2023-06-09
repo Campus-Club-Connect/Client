@@ -2,13 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
-import Startup from "./../../assets/columnBanner/startup.jpg";
-import Gtech from "./../../assets/columnBanner/gtech.jpg";
-import Integrity from "./../../assets/columnBanner/integrity.jpg";
-import LIA from "./../../assets/columnBanner/lia.jpg";
-import MMD from "./../../assets/columnBanner/mmd.jpg";
-import Rovers from "./../../assets/columnBanner/rovers.jpg";
-import Tarayana from "./../../assets/columnBanner/tarayana.jpg";
+import Startup from "./../../assets/columnBanner/startup.png";
+import Gtech from "./../../assets/columnBanner/g-tech.png";
+import Integrity from "./../../assets/columnBanner/integrity.png";
+import LIA from "./../../assets/columnBanner/lia.png";
+import MMD from "./../../assets/columnBanner/mmd.png";
+import Rovers from "./../../assets/columnBanner/rover.png";
+import Tarayana from "./../../assets/columnBanner/tarayana.png";
 import Logo from "./../../assets/cccLogo.png";
 
 const Login = () => {
@@ -41,19 +41,19 @@ const Login = () => {
     <div className="login">
       <div className="bgClubs">
         <div className="bgClub">
-          <img src={LIA} alt="" />
+          <img src={Startup} alt="" />
         </div>
         <div className="bgClub">
-          <img src={Integrity} alt="" />
+          <img src={Rovers} alt="" />
         </div>
         <div className="bgClub">
           <img src={MMD} alt="" />
         </div>
         <div className="bgClub">
-          <img src={Startup} alt="" />
+          <img src={Integrity} alt="" />
         </div>
         <div className="bgClub">
-          <img src={Rovers} alt="" />
+          <img src={LIA} alt="" />
         </div>
         <div className="bgClub">
           <img src={Tarayana} alt="" />

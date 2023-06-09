@@ -8,6 +8,7 @@ import "./style.scss";
 import { library } from "@fortawesome/fontawesome-svg-core"; //allows later to just use icon name to render-them
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,7 +38,7 @@ import NewClubRegister from "./pages/clubs/newClubRegister/NewClubRegister";
 import NewClubForm from "./components/newClubRegistrationForm/NewClubForm";
 import Polls from "./pages/polls/Polls";
 
-library.add(far, faThumbsUp, faComment, faArrowUpFromBracket);
+library.add(far, faThumbsUp, faComment, faArrowUpFromBracket, faThumbsDown);
 
 function App() {
   const { currentUser } = useContext(AuthContext);

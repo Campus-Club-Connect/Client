@@ -15,6 +15,7 @@ import ClubInfoGTech from "../../../components/clubInfo/ClubInfoGTech";
 
 const GTech = () => {
   const [currentInnerTab, setInnerTab] = useState(0);
+
   const { currentUser } = useContext(AuthContext);
 
   const {
@@ -26,6 +27,13 @@ const GTech = () => {
       return res.data;
     })
   );
+
+  // For clickable posts
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleChildClick = (id) => {
+    setSelectedId(id);
+  };
 
   return (
     <div className="gtech-page">
@@ -40,7 +48,10 @@ const GTech = () => {
             ) : currentInnerTab === 1 ? (
               <ClubActivities currentClub={clubData} />
             ) : currentInnerTab === 2 ? (
-              <ClubDiscussion currentClub={clubData} />
+              <ClubDiscussion
+                currentClub={clubData}
+                onChildClick={handleChildClick}
+              />
             ) : (
               "<AlternativeComponent />"
             )}
@@ -51,7 +62,7 @@ const GTech = () => {
             ) : currentInnerTab === 1 ? (
               <ClubRightBar />
             ) : currentInnerTab === 2 ? (
-              <Chats />
+              <Chats postId={selectedId} />
             ) : (
               "Choose a Club"
             )}

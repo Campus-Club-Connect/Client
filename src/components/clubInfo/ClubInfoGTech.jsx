@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import GTech from "./../../assets/G-Tech/G-Tech.avif";
+import GTech from "./../../assets/clubInfo/G-tech.png";
 
 const ClubInfoGTech = () => {
   return (

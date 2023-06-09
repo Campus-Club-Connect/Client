@@ -27,6 +27,13 @@ const Startup = () => {
     })
   );
 
+  // For clickable posts
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleChildClick = (id) => {
+    setSelectedId(id);
+  };
+
   return (
     <div className="startup-page">
       <div className="innerNavBar">
@@ -40,7 +47,7 @@ const Startup = () => {
             ) : currentInnerTab === 1 ? (
               <ClubActivities currentClub={clubData} />
             ) : currentInnerTab === 2 ? (
-              <ClubDiscussion currentClub={clubData} />
+              <ClubDiscussion currentClub={clubData} onChildClick={handleChildClick}/>
             ) : (
               "<AlternativeComponent />"
             )}
@@ -51,7 +58,7 @@ const Startup = () => {
             ) : currentInnerTab === 1 ? (
               <ClubRightBar />
             ) : currentInnerTab === 2 ? (
-              <Chats />
+              <Chats postId={selectedId}/>
             ) : (
               "Choose a Club"
             )}

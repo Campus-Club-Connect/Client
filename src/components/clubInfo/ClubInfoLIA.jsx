@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import LIA from "./../../assets/LIA/LIA.avif";
+import LIA from "./../../assets/clubInfo/lia.png";
 
 const ClubInfoLIA = () => {
   return (

@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import Startup from "./../../assets/Startup/StartUp.avif";
+import Startup from "./../../assets/clubInfo/startup.png";
 
 const ClubInfoStartup = () => {
   return (

@@ -1,5 +1,5 @@
 import "./clubInfo.scss";
-import Rovers from "./../../assets/Rovers/Rovers.avif";
+import Rovers from "./../../assets/clubInfo/rovers.png";
 
 const ClubInfoRovers = () => {
   return (

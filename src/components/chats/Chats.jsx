@@ -13,8 +13,8 @@ const Chats = ({ postId }) => {
   const [desc, setDesc] = useState("");
   const { currentUser } = useContext(AuthContext);
 
-  const { isLoading, error, data } = useQuery("comments", () =>
-    makeRequest.get("/comments?postId=" + postId).then((res) => {
+  const { isLoading, error, data } = useQuery("chats", () =>
+    makeRequest.get("/chats?postId=" + postId).then((res) => {
       return res.data;
     })
   );
@@ -22,13 +22,13 @@ const Chats = ({ postId }) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(
-    (newComment) => {
-      return makeRequest.post("/comments", newComment);
+    (newChat) => {
+      return makeRequest.post("/chats", newChat);
     },
     {
       onSuccess: () => {
         // Invalidate and refetch
-        queryClient.invalidateQueries("comments");
+        queryClient.invalidateQueries("chats");
       },
     }
   );
@@ -41,11 +41,32 @@ const Chats = ({ postId }) => {
 
   return (
     <div className="chats">
+      <h3>Chats</h3>
+      <div className="chatPreview">
+        {isLoading
+          ? "loading..."
+          : data.map((chat) => (
+              <div className="chatContainer">
+                <div className="chatInfo">
+                  <img src={"/upload/" + chat.profilePic} alt="" />
+                  <div className="chatDetails">
+                    <span>{chat.name}</span>
+                    <span className="date">
+                      {moment(chat.sentDate).fromNow()}
+                    </span>
+                  </div>
+                </div>
+                <div className="chatBody">
+                  <p>{chat.chatBody}</p>
+                </div>
+              </div>
+            ))}
+      </div>
       <div className="write">
         <img src={"/upload/" + currentUser.profilePic} alt="" />
         <input
           type="text"
-          placeholder="Write a comment..."
+          placeholder="Write a chat..."
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
         />
@@ -54,21 +75,6 @@ const Chats = ({ postId }) => {
           <FontAwesomeIcon icon={faPaperPlane} />
         </button>
       </div>
-
-      {isLoading
-        ? "loading..."
-        : data.map((comment) => (
-            <div className="comment">
-              <img src={"/upload/" + comment.profilePic} alt="" />
-              <div className="info">
-                <span>{comment.name}</span>
-                <p>{comment.desc}</p>
-              </div>
-              <span className="date">
-                {moment(comment.createdAt).fromNow()}
-              </span>
-            </div>
-          ))}
     </div>
   );
 };

@@ -111,7 +111,7 @@ const Post = ({ post }) => {
         <div className="user">
           <div className="userInfo">
             <Link to={`/profile/${post.userId}`}>
-              <img src={"/upload/" + post.profilePic} alt=""/>
+              <img src={"/upload/" + post.profilePic} alt="" />
             </Link>
             <div className="details">
               <Link
@@ -168,10 +168,7 @@ const Post = ({ post }) => {
             <FontAwesomeIcon icon="fa-regular fa-comment" />
             <p>Comment</p>
           </div>
-          <div className="item">
-            <FontAwesomeIcon icon="fa-solid fa-arrow-up-from-bracket" />
-            <p>Share</p>
-          </div>
+
           <div className="item pin" onClick={handlePin}>
             {pIsLoading ? (
               "loading"

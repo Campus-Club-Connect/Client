@@ -22,7 +22,7 @@
       margin: auto;
       border-radius: 8px;
       overflow: hidden;
-      padding-top: 20px;
+      margin-top: 20px;
 
       -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
       -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
@@ -94,38 +94,41 @@
           border-radius: 0px 0px 8px 8px;
           margin-top: -20px;
         }
+        button {
+          @include mobile {
+            $spacing: 1rem;
+          }
+          padding: 0.5rem $spacing;
+          font-size: 0.8rem;
+          font-weight: 600;
+          border: 2px solid #cfd9de;
+          color: themed("textColor");
+          background: themed("bg");
+          border-radius: calc($width - (0.5 * $width));
+          cursor: pointer;
+          transition: 0.1s;
+
+          @include mobile {
+            font-size: 12px;
+            padding: 0.4rem $spacing;
+          }
+        }
+
+        button:hover {
+          background: #e7e7e8;
+          transition: 0.2s;
+        }
+        button:active {
+          scale: 96%;
+          transform: perspective(1px) translateZ(0);
+          backface-visibility: hidden;
+          transition: 0.1s;
+        }
 
         .uEdit {
-          button {
-            @include mobile {
-              $spacing: 1rem;
-            }
-            padding: 0.5rem $spacing;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 2px solid #cfd9de;
-            color: themed("textColor");
-            background: themed("bg");
-            border-radius: calc($width - (0.5 * $width));
-            cursor: pointer;
-            transition: 0.1s;
+        }
 
-            @include mobile {
-              font-size: 12px;
-              padding: 0.4rem $spacing;
-            }
-          }
-
-          button:hover {
-            background: #e7e7e8;
-            transition: 0.2s;
-          }
-          button:active {
-            scale: 96%;
-            transform: perspective(1px) translateZ(0);
-            backface-visibility: hidden;
-            transition: 0.1s;
-          }
+        .uCCA {
         }
 
         .uDetails {
